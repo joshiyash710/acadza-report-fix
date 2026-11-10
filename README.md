@@ -2,7 +2,7 @@
 
 The system between a student's "Report error" tap and a safe fix in Acadza's question bank, plus the console a faculty member uses to review it.
 
-- **Live console:** `<add your deployed URL>` (static, loads a precomputed run, see [Precomputed run](#precomputed-run))
+- **Live console:** `https://acadza-report-fix-console.vercel.app/` (static, loads a precomputed run, see [Precomputed run](#precomputed-run))
 - **Output:** [`results.json`](results.json), one decision for each of the 44 reports
 - **Bonus:** [`unreported_defects.json`](unreported_defects.json), 31 defects in 13 questions that no student reported
 - **Docs:** [`PROMPTS.md`](PROMPTS.md) covers the prompts and design log. [`PRODUCT.md`](PRODUCT.md) covers product thinking. [`docs/BRIEF.md`](docs/BRIEF.md) is the original brief.
