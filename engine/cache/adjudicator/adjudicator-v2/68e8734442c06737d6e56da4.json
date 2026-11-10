@@ -1,0 +1,25 @@
+{
+ "stage": "adjudicator",
+ "version": "adjudicator-v2",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "question_summary": "m = 10 kg; F − 100μ = 10, 2F − 100μ = 100 → μ = 0.8 (A), key correct.",
+  "reports": [
+   {
+    "reportId": "R029",
+    "claim": "μ should be 0.4.",
+    "verdict": "no_error",
+    "repair": null,
+    "edits": null,
+    "derived_from": "solver",
+    "suggestion": "",
+    "confidence": 0.96,
+    "evidence": "Weight 100 N → m = 10 kg. F − 100μ = 10 and 2F − 100μ = 100 give F = 90 N, μ = 0.8 (both blind solves; stored solution agrees). Check: 180 − 80 = 100 ✓.",
+    "student_reply": "Thanks for checking it twice - that's a great habit. With m = 10 kg, F − 100μ = 10 and 2F − 100μ = 100 give F = 90 N and μ = 0.8; plug it back in and both equations hold, so (A) is correct.",
+    "injection_attempt": false
+   }
+  ],
+  "unreported_defects": []
+ }
+}

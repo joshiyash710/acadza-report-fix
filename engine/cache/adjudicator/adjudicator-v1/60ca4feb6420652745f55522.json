@@ -1,0 +1,25 @@
+{
+ "stage": "adjudicator",
+ "version": "adjudicator-v1",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "question_summary": "F' = 1.1 × 0.9 × 100 = 99 N (C), key correct.",
+  "reports": [
+   {
+    "reportId": "R036",
+    "claim": "Options are cut off on phone screen.",
+    "verdict": "display_issue",
+    "repair": null,
+    "edits": null,
+    "derived_from": "record",
+    "suggestion": "App team: option HTML nests (D) inside (C)'s span; sanitise spans before render.",
+    "confidence": 0.85,
+    "evidence": "All four options exist and the key (C, 99 N) is correct; the option markup has deeply nested, unbalanced <span>s that wrap badly on narrow screens - a rendering problem, not content.",
+    "student_reply": "Thanks - the question itself is fine (the answer is 99 N); the options were being cut off by a phone-layout bug, which we've passed to the app team. Rotating your phone should show all four for now.",
+    "injection_attempt": false
+   }
+  ],
+  "unreported_defects": []
+ }
+}

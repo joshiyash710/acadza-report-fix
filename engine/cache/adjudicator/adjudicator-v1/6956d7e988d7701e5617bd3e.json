@@ -1,0 +1,82 @@
+{
+ "stage": "adjudicator",
+ "version": "adjudicator-v1",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "question_summary": "ω = π/8, v = Aω cos(π/4) = π → A = 8√2 m (D), key correct.",
+  "reports": [
+   {
+    "reportId": "R030",
+    "claim": "Amplitude should be 4√2.",
+    "verdict": "no_error",
+    "repair": null,
+    "edits": null,
+    "derived_from": "solver",
+    "suggestion": "",
+    "confidence": 0.95,
+    "evidence": "At t = 2 s, ωt = π/4: π = A·(π/8)·(1/√2) → A = 8√2 m (both blind solves). 4√2 comes from using cos 45° = 1/√2 twice or ω = π/4.",
+    "student_reply": "Good try - at t = 2 s, ωt = π/4, so π = A × (π/8) × (1/√2), which gives A = 8√2 m. Option (D) is correct.",
+    "injection_attempt": false
+   }
+  ],
+  "unreported_defects": [
+   {
+    "repair": "notation",
+    "field": "question",
+    "find": "<mn> 2 </mn><msqrt><mrow><mn> 2 </mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\"> m </mi></mrow></mrow></msqrt>",
+    "replace": "<mn> 2 </mn><msqrt><mrow><mn> 2 </mn></mrow></msqrt><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\"> m </mi></mrow>",
+    "evidence": "Option A: the unit 'm' is inside the square root (2√(2 m)); should be 2√2 m.",
+    "confidence": 0.9
+   },
+   {
+    "repair": "notation",
+    "field": "question",
+    "find": "<mn> 4 </mn><msqrt><mrow><mn> 2 </mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\"> m </mi></mrow></mrow></msqrt>",
+    "replace": "<mn> 4 </mn><msqrt><mrow><mn> 2 </mn></mrow></msqrt><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\"> m </mi></mrow>",
+    "evidence": "Option B: the unit 'm' is inside the square root (4√(2 m)); should be 4√2 m.",
+    "confidence": 0.9
+   },
+   {
+    "repair": "notation",
+    "field": "question",
+    "find": "<mn> 6 </mn><msqrt><mrow><mn> 2 </mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\"> m </mi></mrow></mrow></msqrt>",
+    "replace": "<mn> 6 </mn><msqrt><mrow><mn> 2 </mn></mrow></msqrt><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\"> m </mi></mrow>",
+    "evidence": "Option C: the unit 'm' is inside the square root (6√(2 m)); should be 6√2 m.",
+    "confidence": 0.9
+   },
+   {
+    "repair": "notation",
+    "field": "question",
+    "find": "<mn> 8 </mn><msqrt><mrow><mn> 2 </mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\"> m </mi></mrow></mrow></msqrt>",
+    "replace": "<mn> 8 </mn><msqrt><mrow><mn> 2 </mn></mrow></msqrt><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\"> m </mi></mrow>",
+    "evidence": "Option D: the unit 'm' is inside the square root (8√(2 m)); should be 8√2 m.",
+    "confidence": 0.9
+   },
+   {
+    "repair": "notation",
+    "field": "solution",
+    "find": "<mi> v </mi><mo>&minus;</mo><mfrac><mrow><mi> d </mi><mi> x </mi></mrow><mrow><mi> d </mi><mi> t </mi></mrow></mfrac><mo>&minus;</mo>",
+    "replace": "<mi> v </mi><mo>=</mo><mfrac><mrow><mi> d </mi><mi> x </mi></mrow><mrow><mi> d </mi><mi> t </mi></mrow></mfrac><mo>=</mo>",
+    "evidence": "Solution writes v − dx/dt − Aω cos ωt; the minus signs should be '='.",
+    "confidence": 0.9
+   },
+   {
+    "repair": "notation",
+    "field": "solution",
+    "find": "<mi> cos </mi><mfrac><mrow><mi>&pi;</mi></mrow><mrow><mn> 8 </mn></mrow></mfrac><mi>&times;</mi><mn> 2 </mn>",
+    "replace": "<mi> cos </mi><mrow><mo>(</mo><mfrac><mrow><mi>&pi;</mi></mrow><mrow><mn> 8 </mn></mrow></mfrac><mi>&times;</mi><mn> 2 </mn><mo>)</mo></mrow>",
+    "evidence": "Solution writes cos(π/8) × 2 instead of cos(π/8 × 2) - lost bracket.",
+    "confidence": 0.85
+   },
+   {
+    "repair": "spelling",
+    "field": "question",
+    "find": "starts equilibrium position",
+    "replace": "starts from equilibrium position",
+    "evidence": "Missing word 'from'.",
+    "confidence": 0.9
+   }
+  ]
+ }
+}

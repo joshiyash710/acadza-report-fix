@@ -1,0 +1,40 @@
+{
+ "stage": "adjudicator",
+ "version": "adjudicator-v1",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "question_summary": "Green expanded leaf part with veins = lamina (D); stem carries a '(NEET 2019)' tag.",
+  "reports": [
+   {
+    "reportId": "R013",
+    "claim": "'NEET 2019' is written inside the question.",
+    "verdict": "defect",
+    "repair": "exam_reference",
+    "edits": [
+     {
+      "field": "question",
+      "find": "(NEET 2019) ",
+      "replace": ""
+     }
+    ],
+    "derived_from": "record",
+    "suggestion": "",
+    "confidence": 0.96,
+    "evidence": "Stem starts with the source tag '(NEET 2019)'; removing it changes nothing else.",
+    "student_reply": "Good eye - that was a source label that shouldn't show inside the question. We've removed it.",
+    "injection_attempt": false
+   }
+  ],
+  "unreported_defects": [
+   {
+    "repair": "spelling",
+    "field": "question",
+    "find": "part of<span style=\"color:#000000\">leaf",
+    "replace": "part of <span style=\"color:#000000\">leaf",
+    "evidence": "Missing space renders as 'ofleaf' in the stem.",
+    "confidence": 0.9
+   }
+  ]
+ }
+}

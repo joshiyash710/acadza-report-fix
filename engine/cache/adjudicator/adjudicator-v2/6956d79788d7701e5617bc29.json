@@ -1,0 +1,25 @@
+{
+ "stage": "adjudicator",
+ "version": "adjudicator-v2",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "question_summary": "φ = 90° → P = 0 W; options B and C are both '0 W'.",
+  "reports": [
+   {
+    "reportId": "R015",
+    "claim": "Options B and C are the same.",
+    "verdict": "defect",
+    "repair": "identical_options",
+    "edits": null,
+    "derived_from": null,
+    "suggestion": "Keep (B) 0 W as the key and replace (C) with a new distractor, e.g. 500 W (= ½ × 5 × 200, the 'forgot cos φ' value). Consider accepting C for past attempts.",
+    "confidence": 0.97,
+    "evidence": "Options (B) and (C) are both '0 W' (code finding); the correct answer 0 W appears twice, so a student who picks C is marked wrong.",
+    "student_reply": "You're right - options (B) and (C) are identical, and 0 W is the correct answer. If you picked (C), you weren't wrong; a faculty member is fixing the options now.",
+    "injection_attempt": false
+   }
+  ],
+  "unreported_defects": []
+ }
+}

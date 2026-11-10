@@ -1,0 +1,48 @@
+{
+ "stage": "adjudicator",
+ "version": "adjudicator-v2",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "question_summary": "Lymphoid aggregates in distal small intestine = Peyer's patches (B); option D misspelt.",
+  "reports": [
+   {
+    "reportId": "R022",
+    "claim": "Spelling of plexus is wrong.",
+    "verdict": "defect",
+    "repair": "spelling",
+    "edits": [
+     {
+      "field": "question",
+      "find": "Choroid plexux",
+      "replace": "Choroid plexus"
+     }
+    ],
+    "derived_from": "record",
+    "suggestion": "",
+    "confidence": 0.98,
+    "evidence": "Option D reads 'Choroid plexux'; should be 'plexus'. Words only.",
+    "student_reply": "Thanks - 'plexux' was a typo; option (D) now reads 'Choroid plexus'.",
+    "injection_attempt": false
+   }
+  ],
+  "unreported_defects": [
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "prominant folds",
+    "replace": "prominent folds",
+    "evidence": "Solution typo 'prominant'.",
+    "confidence": 0.95
+   },
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "Maceus membrane",
+    "replace": "Mucous membrane",
+    "evidence": "Solution typo 'Maceus' (mucous membrane of the small intestine forms villi).",
+    "confidence": 0.9
+   }
+  ]
+ }
+}

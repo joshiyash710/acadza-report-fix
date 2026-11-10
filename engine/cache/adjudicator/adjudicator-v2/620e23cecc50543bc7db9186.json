@@ -1,0 +1,50 @@
+{
+ "stage": "adjudicator",
+ "version": "adjudicator-v2",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "question_summary": "Ancestral state inferred via a more distantly related snake (outgroup) → B (correct).",
+  "reports": [
+   {
+    "reportId": "R026",
+    "claim": "Out of syllabus for NEET.",
+    "verdict": "defect",
+    "repair": "syllabus",
+    "edits": null,
+    "derived_from": null,
+    "suggestion": "Decide if cladistics/outgroup reasoning is in scope for NEET; if not, retag as 'beyond syllabus' rather than deleting.",
+    "confidence": 0.65,
+    "evidence": "Outgroup comparison / ancestral-state inference is not an explicit NCERT Class 12 Evolution topic; plausible syllabus concern, needs a faculty call. Key B is correct.",
+    "student_reply": "Thanks - a faculty member will check whether this is within the current NEET syllabus. The question stays up meanwhile, and (B) is the correct answer.",
+    "injection_attempt": false
+   }
+  ],
+  "unreported_defects": [
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "may represents the origin",
+    "replace": "may represent the origin",
+    "evidence": "Grammar in solution.",
+    "confidence": 0.9
+   },
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "each other than, he/she",
+    "replace": "each other then, he/she",
+    "evidence": "'than' should be 'then'.",
+    "confidence": 0.85
+   },
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "see it, wheater, it has",
+    "replace": "see whether it has",
+    "evidence": "Typo 'wheater'.",
+    "confidence": 0.9
+   }
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "stage": "adjudicator",
+ "version": "adjudicator-v1",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "question_summary": "KE for λ = 0.3 nm: K = h²/2mλ² ≈ 16.8 eV (B, correct); solution is a garbled mix from another question.",
+  "reports": [
+   {
+    "reportId": "R018",
+    "claim": "The solution belongs to some other question.",
+    "verdict": "defect",
+    "repair": "solution_fix",
+    "edits": [
+     {
+      "field": "solution",
+      "find": "<h3><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mo>&#x0003D;</mo><mn>5.469</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>10</mn></mrow></msup><mi>m</mi><mo>&#x0003D;</mo><mn>5.47</mn><mi>\\AA</mi></mrow></mstyle></math> <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mi>&#x003BB;</mi><mo>&#x0003D;</mo><mfrac><mrow><mi>h</mi></mrow><mrow><mo stretchy=\"false\">&#x0007C;</mo><mi>p</mi><mo stretchy=\"false\">&#x0007C;</mo></mrow></mfrac><mo>&#x0003D;</mo><mfrac><mrow><mi>h</mi></mrow><mrow><mo stretchy=\"false\">&#x0007C;</mo><mi>I</mi><mo stretchy=\"false\">&#x0007C;</mo></mrow></mfrac></mrow></mstyle></math> <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mo>&#x0003D;</mo><mn>2.65</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>18</mn></mrow></msup><mi>J</mi></mrow></mstyle></math> <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mo>&#x0003D;</mo><mn>16.8</mn><mi>e</mi><mi>V</mi></mrow></mstyle></math></h3>",
+      "replace": "<h3>For an electron, <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>&lambda;</mi><mo>=</mo><mfrac><mi>h</mi><msqrt><mrow><mn>2</mn><mi>m</mi><mi>K</mi></mrow></msqrt></mfrac><mo>&rArr;</mo><mi>K</mi><mo>=</mo><mfrac><msup><mi>h</mi><mn>2</mn></msup><mrow><mn>2</mn><mi>m</mi><msup><mi>&lambda;</mi><mn>2</mn></msup></mrow></mfrac></mrow></math><br/><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>K</mi><mo>=</mo><mfrac><msup><mrow><mo>(</mo><mn>6.63</mn><mo>&times;</mo><msup><mn>10</mn><mrow><mo>&minus;</mo><mn>34</mn></mrow></msup><mo>)</mo></mrow><mn>2</mn></msup><mrow><mn>2</mn><mo>&times;</mo><mn>9.1</mn><mo>&times;</mo><msup><mn>10</mn><mrow><mo>&minus;</mo><mn>31</mn></mrow></msup><mo>&times;</mo><msup><mrow><mo>(</mo><mn>0.3</mn><mo>&times;</mo><msup><mn>10</mn><mrow><mo>&minus;</mo><mn>9</mn></mrow></msup><mo>)</mo></mrow><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mn>2.68</mn><mo>&times;</mo><msup><mn>10</mn><mrow><mo>&minus;</mo><mn>18</mn></mrow></msup><mtext>&nbsp;J</mtext></mrow></math><br/><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>K</mi><mo>=</mo><mfrac><mrow><mn>2.68</mn><mo>&times;</mo><msup><mn>10</mn><mrow><mo>&minus;</mo><mn>18</mn></mrow></msup></mrow><mrow><mn>1.6</mn><mo>&times;</mo><msup><mn>10</mn><mrow><mo>&minus;</mo><mn>19</mn></mrow></msup></mrow></mfrac><mo>&asymp;</mo><mn>16.8</mn><mtext>&nbsp;eV</mtext></mrow></math></h3>"
+     }
+    ],
+    "derived_from": "solver",
+    "suggestion": "",
+    "confidence": 0.9,
+    "evidence": "Stored solution opens with '= 5.469×10⁻¹⁰ m = 5.47 Å' (a wavelength from a different question, with a raw \\AA), then fragments. Key B is right: K = h²/2mλ² = 2.68×10⁻¹⁸ J ≈ 16.8 eV (both blind solves). Replaced with a clean 3-line solution ending at 16.8 eV.",
+    "student_reply": "You're right - the solution shown was mixed up with another question. The answer (B) 16.8 eV is correct, and we've replaced the solution with the proper working.",
+    "injection_attempt": false
+   },
+   {
+    "reportId": "R019",
+    "claim": "Solution gives 5.47 Å but the question asks something else.",
+    "verdict": "defect",
+    "repair": "solution_fix",
+    "edits": [
+     {
+      "field": "solution",
+      "find": "<h3><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mo>&#x0003D;</mo><mn>5.469</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>10</mn></mrow></msup><mi>m</mi><mo>&#x0003D;</mo><mn>5.47</mn><mi>\\AA</mi></mrow></mstyle></math> <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mi>&#x003BB;</mi><mo>&#x0003D;</mo><mfrac><mrow><mi>h</mi></mrow><mrow><mo stretchy=\"false\">&#x0007C;</mo><mi>p</mi><mo stretchy=\"false\">&#x0007C;</mo></mrow></mfrac><mo>&#x0003D;</mo><mfrac><mrow><mi>h</mi></mrow><mrow><mo stretchy=\"false\">&#x0007C;</mo><mi>I</mi><mo stretchy=\"false\">&#x0007C;</mo></mrow></mfrac></mrow></mstyle></math> <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mo>&#x0003D;</mo><mn>2.65</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>18</mn></mrow></msup><mi>J</mi></mrow></mstyle></math> <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mo>&#x0003D;</mo><mn>16.8</mn><mi>e</mi><mi>V</mi></mrow></mstyle></math></h3>",
+      "replace": "<h3>For an electron, <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>&lambda;</mi><mo>=</mo><mfrac><mi>h</mi><msqrt><mrow><mn>2</mn><mi>m</mi><mi>K</mi></mrow></msqrt></mfrac><mo>&rArr;</mo><mi>K</mi><mo>=</mo><mfrac><msup><mi>h</mi><mn>2</mn></msup><mrow><mn>2</mn><mi>m</mi><msup><mi>&lambda;</mi><mn>2</mn></msup></mrow></mfrac></mrow></math><br/><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>K</mi><mo>=</mo><mfrac><msup><mrow><mo>(</mo><mn>6.63</mn><mo>&times;</mo><msup><mn>10</mn><mrow><mo>&minus;</mo><mn>34</mn></mrow></msup><mo>)</mo></mrow><mn>2</mn></msup><mrow><mn>2</mn><mo>&times;</mo><mn>9.1</mn><mo>&times;</mo><msup><mn>10</mn><mrow><mo>&minus;</mo><mn>31</mn></mrow></msup><mo>&times;</mo><msup><mrow><mo>(</mo><mn>0.3</mn><mo>&times;</mo><msup><mn>10</mn><mrow><mo>&minus;</mo><mn>9</mn></mrow></msup><mo>)</mo></mrow><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mn>2.68</mn><mo>&times;</mo><msup><mn>10</mn><mrow><mo>&minus;</mo><mn>18</mn></mrow></msup><mtext>&nbsp;J</mtext></mrow></math><br/><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mrow><mi>K</mi><mo>=</mo><mfrac><mrow><mn>2.68</mn><mo>&times;</mo><msup><mn>10</mn><mrow><mo>&minus;</mo><mn>18</mn></mrow></msup></mrow><mrow><mn>1.6</mn><mo>&times;</mo><msup><mn>10</mn><mrow><mo>&minus;</mo><mn>19</mn></mrow></msup></mrow></mfrac><mo>&asymp;</mo><mn>16.8</mn><mtext>&nbsp;eV</mtext></mrow></math></h3>"
+     }
+    ],
+    "derived_from": "solver",
+    "suggestion": "",
+    "confidence": 0.9,
+    "evidence": "Stored solution opens with '= 5.469×10⁻¹⁰ m = 5.47 Å' (a wavelength from a different question, with a raw \\AA), then fragments. Key B is right: K = h²/2mλ² = 2.68×10⁻¹⁸ J ≈ 16.8 eV (both blind solves). Replaced with a clean 3-line solution ending at 16.8 eV.",
+    "student_reply": "Bilkul sahi - that 5.47 Å line belonged to a different question. The correct working is K = h²/2mλ² ≈ 16.8 eV, option (B), and the solution is now fixed.",
+    "injection_attempt": false
+   }
+  ],
+  "unreported_defects": []
+ }
+}

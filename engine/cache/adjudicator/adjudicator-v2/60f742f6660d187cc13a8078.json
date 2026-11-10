@@ -1,0 +1,50 @@
+{
+ "stage": "adjudicator",
+ "version": "adjudicator-v2",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "question_summary": "R = 40 Ω, L = 95.5 mH (missing from stem), f = 50 Hz → Z = 50 Ω (C).",
+  "reports": [
+   {
+    "reportId": "R008",
+    "claim": "Data missing.",
+    "verdict": "defect",
+    "repair": "stem_data",
+    "edits": [
+     {
+      "field": "question",
+      "find": "and an inductance are connected",
+      "replace": "and an inductance of 95.5 mH are connected"
+     }
+    ],
+    "derived_from": "solution",
+    "suggestion": "",
+    "confidence": 0.92,
+    "evidence": "Stem omits L; stored solution uses L = 95.5×10⁻³ H, giving XL = 2π·50·0.0955 = 30 Ω and Z = √(40² + 30²) = 50 Ω = key C.",
+    "student_reply": "Good catch - the inductance value was missing. It's 95.5 mH (XL = 30 Ω, so Z = 50 Ω); we've added it to the question.",
+    "injection_attempt": false
+   },
+   {
+    "reportId": "R007",
+    "claim": "Inductance value is not given.",
+    "verdict": "defect",
+    "repair": "stem_data",
+    "edits": [
+     {
+      "field": "question",
+      "find": "and an inductance are connected",
+      "replace": "and an inductance of 95.5 mH are connected"
+     }
+    ],
+    "derived_from": "solution",
+    "suggestion": "",
+    "confidence": 0.92,
+    "evidence": "Stem omits L; stored solution uses L = 95.5×10⁻³ H, giving XL = 2π·50·0.0955 = 30 Ω and Z = √(40² + 30²) = 50 Ω = key C.",
+    "student_reply": "Sahi pakda - the inductance wasn't given. It's 95.5 mH, which makes XL = 30 Ω and Z = 50 Ω; the question now shows it.",
+    "injection_attempt": false
+   }
+  ],
+  "unreported_defects": []
+ }
+}

@@ -1,0 +1,58 @@
+{
+ "stage": "adjudicator",
+ "version": "adjudicator-v2",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "question_summary": "Pair NOT antagonistic = relaxin–inhibin (D), key correct.",
+  "reports": [
+   {
+    "reportId": "R035",
+    "claim": "Relaxin and inhibin are antagonistic, so the answer is wrong.",
+    "verdict": "no_error",
+    "repair": null,
+    "edits": null,
+    "derived_from": "solver",
+    "suggestion": "",
+    "confidence": 0.92,
+    "evidence": "Relaxin (softens pelvic ligaments at birth) and inhibin (suppresses FSH) act on unrelated targets, so they are not antagonistic; the other three pairs are. Key D matches both blind solves.",
+    "student_reply": "Fair question! Relaxin softens pelvic ligaments during childbirth while inhibin suppresses FSH - different jobs, not opposite effects on the same thing. That's why (D) is the right answer to 'NOT antagonistic'.",
+    "injection_attempt": false
+   }
+  ],
+  "unreported_defects": [
+   {
+    "repair": "solution_fix",
+    "field": "solution",
+    "find": "Insulin and glucagon work synergistically",
+    "replace": "Insulin and glucagon work antagonistically",
+    "evidence": "Solution states insulin and glucagon are synergistic - factually wrong and contradicts the question's own logic (option B is an antagonistic pair).",
+    "confidence": 0.93
+   },
+   {
+    "repair": "noise",
+    "field": "question",
+    "find": "<h3><ol>\n\t<li>Which",
+    "replace": "<h3>Which",
+    "evidence": "Stem is wrapped in an <ol> list, so it renders with a stray '1.' number.",
+    "confidence": 0.85
+   },
+   {
+    "repair": "noise",
+    "field": "question",
+    "find": "to each other?</li></h3>",
+    "replace": "to each other?</h3>",
+    "evidence": "Closing tag of the stray <ol>/<li> wrapper (pair with previous edit).",
+    "confidence": 0.85
+   },
+   {
+    "repair": "noise",
+    "field": "question",
+    "find": "(C) Aldosterone Atrial Natriuretic Factor",
+    "replace": "(C) Aldosterone &ndash; Atrial Natriuretic Factor",
+    "evidence": "Option C is missing the dash separating the pair.",
+    "confidence": 0.85
+   }
+  ]
+ }
+}

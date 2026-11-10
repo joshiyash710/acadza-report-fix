@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report → Fix · Acadza faculty console</title>
+<meta name="description" content="Review AI-proposed fixes to student-reported question errors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231B2A4A'/><path d='M9 17l4 4 10-11' stroke='%23fff' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+</head>
+<body>
+<a class="skip" href="#case">Skip to case</a>
+<header class="top">
+  <div class="brand">
+    <span class="logo" aria-hidden="true">✓</span>
+    <div>
+      <h1>Report → Fix</h1>
+      <p class="sub">Student error reports, checked and ready for your call</p>
+    </div>
+  </div>
+  <div class="progress" id="progress" aria-live="polite"></div>
+  <div class="top-actions">
+    <label class="who">Reviewing as <input id="reviewer" placeholder="your name" autocomplete="name"></label>
+    <button class="ghost" id="btn-audit" aria-haspopup="dialog">Audit log <span id="audit-count" class="count"></span></button>
+    <button class="ghost icon" id="btn-help" title="Keyboard shortcuts (?)" aria-label="Keyboard shortcuts">?</button>
+    <button class="ghost" id="btn-theme" title="Switch light/dark theme">Dark</button>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="queue" aria-label="Review queue">
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <p class="order-note" id="order-note"></p>
+    <ol class="items" id="items"></ol>
+  </nav>
+
+  <main id="case" class="case" tabindex="-1"></main>
+</div>
+
+<dialog id="audit-dialog" class="drawer">
+  <div class="drawer-head">
+    <h2>Audit log</h2>
+    <div>
+      <button class="ghost" id="btn-export">Download JSON</button>
+      <button class="ghost" id="btn-close-audit" aria-label="Close">Close</button>
+    </div>
+  </div>
+  <p class="muted small">Every approve, edit, reject and undo is recorded here with who, when, and the exact edit. Stored in this browser; download to keep a copy.</p>
+  <div id="audit-stats"></div>
+  <ol id="audit-list" class="audit-list"></ol>
+</dialog>
+
+<dialog id="help-dialog" class="drawer narrow">
+  <div class="drawer-head"><h2>Shortcuts</h2><button class="ghost" id="btn-close-help">Close</button></div>
+  <dl class="keys">
+    <dt><kbd>J</kbd> / <kbd>K</kbd></dt><dd>Next / previous case</dd>
+    <dt><kbd>A</kbd></dt><dd>Approve (or keep an auto-applied fix)</dd>
+    <dt><kbd>E</kbd></dt><dd>Edit the proposed fix</dd>
+    <dt><kbd>R</kbd></dt><dd>Reject, or undo an auto-applied fix (asks why)</dd>
+    <dt><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></dt><dd>Marked changes / Before / After</dd>
+    <dt><kbd>?</kbd></dt><dd>This list</dd>
+  </dl>
+</dialog>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>

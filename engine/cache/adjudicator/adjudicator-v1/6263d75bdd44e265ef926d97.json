@@ -1,0 +1,31 @@
+{
+ "stage": "adjudicator",
+ "version": "adjudicator-v1",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "question_summary": "a² × 2 × 1 = 800 → a = 20 cm (key 20 correct); the solution's last line says 40 cm.",
+  "reports": [
+   {
+    "reportId": "R016",
+    "claim": "Solution says 40 cm but the answer is 20 - which is right?",
+    "verdict": "defect",
+    "repair": "solution_fix",
+    "edits": [
+     {
+      "field": "solution",
+      "find": "a = 40 cm",
+      "replace": "a<sup>2</sup> = 400 &rArr; a = 20 cm"
+     }
+    ],
+    "derived_from": "solver",
+    "suggestion": "",
+    "confidence": 0.95,
+    "evidence": "800 = 2·a²·1 gives a² = 400, a = 20 cm; both blind solves get 20 = key. Only the final line of the solution is wrong (40).",
+    "student_reply": "Great question - 20 cm is correct. The solution had a slip in its last line (a² = 400 gives a = 20 cm, not 40); we've fixed it.",
+    "injection_attempt": false
+   }
+  ],
+  "unreported_defects": []
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "stage": "adjudicator",
+ "version": "adjudicator-v2",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "question_summary": "R = 4r, Q = 64q → σ ratio = 64/16 = 4:1 (B), key correct.",
+  "reports": [
+   {
+    "reportId": "R043",
+    "claim": "Should be 1:4 since the bigger drop has more area.",
+    "verdict": "no_error",
+    "repair": null,
+    "edits": null,
+    "derived_from": "solver",
+    "suggestion": "",
+    "confidence": 0.96,
+    "evidence": "Volume conservation gives R = 4r (area ×16) while charge is ×64, so σ ratio = 64/16 = 4:1 (both blind solves, stored solution agrees).",
+    "student_reply": "Good thinking about the area - the bigger drop does have 16× the area, but it also carries 64× the charge. σ = Q/A gives 64/16 = 4, so 4 : 1 (B) is correct.",
+    "injection_attempt": false
+   }
+  ],
+  "unreported_defects": []
+ }
+}

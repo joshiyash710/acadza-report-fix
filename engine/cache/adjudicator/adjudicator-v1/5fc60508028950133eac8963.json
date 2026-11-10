@@ -1,0 +1,40 @@
+{
+ "stage": "adjudicator",
+ "version": "adjudicator-v1",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "question_summary": "Static friction balances weight: f = mg = 20 N (key 20); stem doesn't say the answer is in newtons.",
+  "reports": [
+   {
+    "reportId": "R024",
+    "claim": "Unit not mentioned in the question.",
+    "verdict": "defect",
+    "repair": "answer_form",
+    "edits": [
+     {
+      "field": "question",
+      "find": "Then the frictional force is equal to",
+      "replace": "Then the frictional force (in N) is equal to"
+     }
+    ],
+    "derived_from": "record",
+    "suggestion": "",
+    "confidence": 0.92,
+    "evidence": "Integer-type stem asks for a force without stating the unit; key 20 is in newtons (f = mg = 20 N). Edit only inserts '(in N)'.",
+    "student_reply": "Fair point - the unit wasn't stated. The answer is in newtons (20 N, since friction just balances the weight), and the question now says so.",
+    "injection_attempt": false
+   }
+  ],
+  "unreported_defects": [
+   {
+    "repair": "spelling",
+    "field": "question",
+    "find": "The friction between wall and body is 0.3",
+    "replace": "The coefficient of friction between wall and body is 0.3",
+    "evidence": "'friction ... is 0.3' should be 'coefficient of friction'; wording only.",
+    "confidence": 0.85
+   }
+  ]
+ }
+}

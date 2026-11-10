@@ -1,0 +1,20 @@
+{
+ "stage": "solver",
+ "version": "solver-v1",
+ "provider": "claude-session",
+ "model": "claude-opus-5-5",
+ "response": {
+  "solvable": true,
+  "answer": "C",
+  "final_value": "2.2 μA",
+  "missing_or_broken": "",
+  "key_steps": "C = Kε0A/d = 10 × 8.85e-12 × 1 / 1e-3 = 8.85e-8 F; Id = C dV/dt = 8.85e-8 × 25 = 2.21 μA",
+  "confidence": 0.97,
+  "per_option": {
+   "A": "incorrect",
+   "B": "incorrect",
+   "C": "correct",
+   "D": "incorrect"
+  }
+ }
+}
